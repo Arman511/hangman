@@ -24,7 +24,7 @@ fn main() {
                     .collect::<Vec<String>>()
                     .join(",")
             );
-            println!("You have {} wrong guesses left", 6 - wrong_guesses);
+            println!("You have {} wrong guesses left", 10 - wrong_guesses);
             let guess = get_guess(letters_guessed.clone());
             letters_guessed.push(guess);
             let mut found = false;
@@ -38,7 +38,7 @@ fn main() {
             if !found {
                 wrong_guesses += 1;
             }
-            if wrong_guesses == 100 {
+            if wrong_guesses == 10 {
                 println!("You lost! The word was: {}", word);
                 break;
             }
