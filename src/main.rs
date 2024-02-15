@@ -13,6 +13,7 @@ fn main() {
         let mut wrong_guesses = 0;
         let mut correct_guesses = 0;
         let mut letters_guessed = Vec::new();
+        let gueses = 8;
         loop {
             print!("{}[2J", 27 as char);
             println!("The word so far is: {}", guessed.iter().collect::<String>());
@@ -24,7 +25,7 @@ fn main() {
                     .collect::<Vec<String>>()
                     .join(",")
             );
-            println!("You have {} wrong guesses left", 10 - wrong_guesses);
+            println!("You have {} wrong guesses left", gueses - wrong_guesses);
             let guess = get_guess(letters_guessed.clone());
             letters_guessed.push(guess);
             let mut found = false;
@@ -38,7 +39,7 @@ fn main() {
             if !found {
                 wrong_guesses += 1;
             }
-            if wrong_guesses == 10 {
+            if wrong_guesses == gueses {
                 println!("You lost! The word was: {}", word);
                 break;
             }
